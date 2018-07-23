@@ -4,28 +4,63 @@ import './index.css';
 // import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-class LikeButton extends Component {
+
+class Computer extends Component {
     constructor() {
         super()
-        this.state = { isLiked: false }
+        this.state = {
+            status: 'off',
+            showContent: "显示器关了"
+        }
+
     }
 
-    handleClickOnLikeButton() {
+    handleChangeScreen() {
         this.setState({
-            isLiked: !this.state.isLiked
+            status: this.state.status === 'off' ? 'on' : 'off',
+        }, () => {
+            this.setState({
+                showContent: this.state.status === 'on' ? "显示器亮了" : "显示器关了"
+            })
         })
     }
 
     render() {
         return (
-            <button onClick={this.handleClickOnLikeButton.bind(this)}>
-                {this.state.isLiked ? '取消' : '点赞'}
-            </button>
+
+            <div>
+                <Screen showContent={this.state.showContent} />
+
+                <button
+                    onClick={this.handleChangeScreen.bind(this)}
+                >
+                    开关
+          </button>
+            </div>
         )
     }
 }
+
+class Screen extends Component {
+
+    static defaultProps = {
+        showContent: "无内容"
+    }
+
+    render() {
+        return (
+            <div className='screen'>
+                {this.props.showContent}
+            </div>
+
+        )
+    }
+}
+
+
+
 ReactDOM.render(
-    <Index />,
+    <Computer />,
     document.getElementById('root')
 )
 
