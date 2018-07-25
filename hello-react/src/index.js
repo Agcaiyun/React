@@ -5,62 +5,39 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 
-class Computer extends Component {
-    constructor() {
-        super()
-        this.state = {
-            status: 'off',
-            showContent: "显示器关了"
-        }
-
-    }
-
-    handleChangeScreen() {
-        this.setState({
-            status: this.state.status === 'off' ? 'on' : 'off',
-        }, () => {
-            this.setState({
-                showContent: this.state.status === 'on' ? "显示器亮了" : "显示器关了"
-            })
-        })
-    }
-
+class Index extends Component {
     render() {
-        return (
+        const users = [
+            { username: 'Jerry', age: 21, gender: 'male' },
+            { username: 'Tomy', age: 22, gender: 'male' },
+            { username: 'Lily', age: 19, gender: 'female' },
+            { username: 'Lucy', age: 20, gender: 'female' }
+        ]
+        const usersElements = []
 
+        return (
             <div>
-                <Screen showContent={this.state.showContent} />
-
-                <button
-                    onClick={this.handleChangeScreen.bind(this)}
-                >
-                    开关
-          </button>
+                {
+                    users.map((user) => {
+                        return (
+                            <div>
+                                <div>姓名：{user.username}</div>
+                                <div>年龄：{user.age}</div>
+                                <div>性别：{user.gender}</div>
+                                <hr />
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
+
+
     }
 }
-
-class Screen extends Component {
-
-    static defaultProps = {
-        showContent: "无内容"
-    }
-
-    render() {
-        return (
-            <div className='screen'>
-                {this.props.showContent}
-            </div>
-
-        )
-    }
-}
-
-
 
 ReactDOM.render(
-    <Computer />,
+    <Index />,
     document.getElementById('root')
 )
 
