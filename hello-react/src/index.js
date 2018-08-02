@@ -4,40 +4,48 @@ import './index.css';
 // import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+// class Lesson extends Component {
+//     render() {
+//         return (
+//             <div>
+//                 <h1>{this.props.lessons.title}</h1>
+//                 <p>{this.props.lessons.description}</p>
+//             </div>
+//         )
+//     }
+// }
 
-class Index extends Component {
+// class LessonsList extends Component {
+//     render() {
+//         const users = [
+//             { title: 'Lesson 1: title', description: 'Lesson 1: description' },
+//             { title: 'Lesson 1: title', description: 'Lesson 1: description' },
+//             { title: 'Lesson 1: title', description: 'Lesson 1: description' },
+//             { title: 'Lesson 1: title', description: 'Lesson 1: description' }
+//         ]
+
+//         return (
+//             <div>
+//                 {users.map((user, index) => {
+//                     <Lesson lessons={lessons} />
+//                 })}
+//             </div>
+//         )
+//     }
+// }
+
+class Test extends Component {
     render() {
-        const users = [
-            { username: 'Jerry', age: 21, gender: 'male' },
-            { username: 'Tomy', age: 22, gender: 'male' },
-            { username: 'Lily', age: 19, gender: 'female' },
-            { username: 'Lucy', age: 20, gender: 'female' }
-        ]
-        const usersElements = []
-
         return (
             <div>
-                {
-                    users.map((user) => {
-                        return (
-                            <div>
-                                <div>姓名：{user.username}</div>
-                                <div>年龄：{user.age}</div>
-                                <div>性别：{user.gender}</div>
-                                <hr />
-                            </div>
-                        )
-                    })
-                }
+                <h1>123</h1>
             </div>
         )
-
-
     }
 }
 
 ReactDOM.render(
-    <Index />,
+    <Test />,
     document.getElementById('root')
 )
 
