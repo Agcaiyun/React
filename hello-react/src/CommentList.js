@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
+import Comment from './Comment'
+
 
 class CommentList extends Component {
+    static defaultProps = {
+        commetns: []
+    }
+
     render() {
         return (
             <div>
-                CommentList
+                {
+                    this.props.comments.map((comment, i) => {
+                        return (
+                            <Comment comment={comment} key={i} />
+                        )
+                    })
+                }
             </div>
         )
     }
