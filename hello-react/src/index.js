@@ -18,6 +18,11 @@ class Header extends Component {
         console.log('component did mount')
     }
 
+    componentWillUnmount () {
+        alert('Header will unmout')
+        console.log('component will unmount')
+    }
+
     render() {
         console.log('render')
         return (
@@ -38,13 +43,26 @@ class Index extends Component {
 
     handleShowOrHide() {
         this.setState({
-
+            isShowHeader: !this.state.isShowHeader
         })
+    }
+
+    render(){
+        return (
+            <div>
+                {this.state.isShowHeader ? <Header /> : null}
+                <button onClick={this.handleShowOrHide.bind(this)}>
+                    显示或者隐藏标题
+                </button>
+
+            </div>
+                
+        )
     }
 }
 
 ReactDOM.render(
-    <Header />,
+    <Index />,
     document.getElementById('root')
 );
 
