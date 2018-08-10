@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import CommentApp from './CommentApp';
+// import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
 class Input extends Component {
@@ -47,6 +47,7 @@ class PercentageShower extends Component {
     }
 }
 
+
 class PercentageApp extends Component {
     constructor() {
         super()
@@ -57,7 +58,7 @@ class PercentageApp extends Component {
 
     handleInput(originNumber) {
         this.setState({
-            inputNumber: originNumber * 100
+            inputNumber: (originNumber * 100).toFixed(2).toString() + "%"
         })
     }
 
