@@ -4,79 +4,47 @@ import './index.css';
 // import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
-class Input extends Component {
+class Header extends Component {
+    constructor() {
+        super()
+        console.log('construct')
+    }
+
+    componentWillMount() {
+        console.log('component will mount')
+    }
+
+    componentDidMount() {
+        console.log('component did mount')
+    }
+
+    render() {
+        console.log('render')
+        return (
+            <div>
+                <h1 className='title'>React 小书</h1>
+            </div>
+        )
+    }
+}
+
+class Index extends Component {
     constructor() {
         super()
         this.state = {
-            originNumber: ''
+            isShowHeader: true
         }
     }
 
-    handleChangeInput(event) {
+    handleShowOrHide() {
         this.setState({
-            originNumber: event.target.value
-        }, () => {
-            if (this.props.onInput) {
-                this.props.onInput(this.state.originNumber)
-            }
+
         })
     }
-
-    render() {
-        return (
-            <div>
-                <input
-                    type='number'
-                    value={this.state.originNumber}
-                    onChange={this.handleChangeInput.bind(this)}
-                />
-            </div>
-        )
-    }
 }
-
-class PercentageShower extends Component {
-    render() {
-        return (
-            <div>
-                {
-                    this.props.onPresent
-                }
-            </div>
-        )
-    }
-}
-
-
-class PercentageApp extends Component {
-    constructor() {
-        super()
-        this.state = {
-            inputNumber: ''
-        }
-    }
-
-    handleInput(originNumber) {
-        this.setState({
-            inputNumber: (originNumber * 100).toFixed(2).toString() + "%"
-        })
-    }
-
-    render() {
-        return (
-            <div>
-                <Input
-                    onInput={this.handleInput.bind(this)}
-                />
-                <PercentageShower onPresent={this.state.inputNumber} />
-            </div>
-        )
-    }
-}
-
 
 ReactDOM.render(
-    <PercentageApp />,
+    <Header />,
     document.getElementById('root')
 );
 
