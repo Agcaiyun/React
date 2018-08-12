@@ -19,6 +19,10 @@ class Clock extends Component {
         }, 1000)
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer)
+    }
+
     render () {
         return (
             <div>
@@ -36,10 +40,26 @@ class Clock extends Component {
 }
 
 class Index extends Component {
+    constructor () {
+        super()
+        this.state = {
+            isShowClock:true
+        }
+    }
+
+    isHideClock () {
+        this.setState({
+            isShowClock: !this.state.isShowClock
+        })
+    }
+
     render () {
         return (
             <div>
-                <Clock />
+                {this.state.isShowClock ? <Clock /> :null}
+            <button onClick={this.isHideClock.bind(this)}>
+                显示或者隐藏闹钟
+            </button>
             </div>
         )
     }
