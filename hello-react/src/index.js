@@ -3,60 +3,44 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
-
-class Header extends Component {
+class Clock extends Component {
     constructor() {
         super()
-        console.log('construct')
+        this.state = {
+            date: new Date()
+        }
     }
 
-    componentWillMount() {
-        console.log('component will mount')
+    componentWillMount () {
+        this.timer = setInterval(() => {
+            this.setState({
+                date: new Date()
+            })
+        }, 1000)
     }
 
-    componentDidMount() {
-        console.log('component did mount')
-    }
-
-    componentWillUnmount () {
-        alert('Header will unmout')
-        console.log('component will unmount')
-    }
-
-    render() {
-        console.log('render')
+    render () {
         return (
             <div>
-                <h1 className='title'>React 小书</h1>
+                <h1>
+                    <p>
+                        现在的时间是：
+                    </p>
+                    {
+                        this.state.date.toLocaleTimeString()
+                    }
+                </h1>
             </div>
         )
     }
 }
 
 class Index extends Component {
-    constructor() {
-        super()
-        this.state = {
-            isShowHeader: true
-        }
-    }
-
-    handleShowOrHide() {
-        this.setState({
-            isShowHeader: !this.state.isShowHeader
-        })
-    }
-
-    render(){
+    render () {
         return (
             <div>
-                {this.state.isShowHeader ? <Header /> : null}
-                <button onClick={this.handleShowOrHide.bind(this)}>
-                    显示或者隐藏标题
-                </button>
-
+                <Clock />
             </div>
-                
         )
     }
 }
