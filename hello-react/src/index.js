@@ -4,23 +4,25 @@ import './index.css';
 // import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
-class Post extends Component {
-  consoleLogHeight() {
-    console.log(this.p.clientHeight)
-  }
-
-  render() {
-    return (
-      <p ref={(p) => this.p = p} onClick={(e) => this.consoleLogHeight.bind(this)}>
-        {this.props.content}
-      </p>
-    )
-  }
+class BlackBorderContainer extends Component {
+  render () {
+   return (
+     <div>
+       {this.props.children.map((el) => {
+         return (<div>{el}</div>)
+       })}
+     </div>
+   )
+ }
 }
 
-
 ReactDOM.render(
-  <Post content={'good lucky'} />,
+  <BlackBorderContainer>
+  <div className='name'>My Name：Lucy</div>
+  <p className='age'>
+    My Age：<span>12</span>
+  </p>
+</BlackBorderContainer>,
   document.getElementById('root')
 );
 
