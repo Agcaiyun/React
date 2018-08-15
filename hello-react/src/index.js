@@ -4,25 +4,26 @@ import './index.css';
 // import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
-class BlackBorderContainer extends Component {
+class Editor extends Component {
+  constructor() {
+    super()
+    this.state ={
+      content: '<h1> React.js 小书</h1>'
+    }
+  }
+
   render () {
-   return (
-     <div>
-       {this.props.children.map((el) => {
-         return (<div>{el}</div>)
-       })}
-     </div>
-   )
- }
+    return (
+      <div className='editor-wrapper'>
+        {this.state.content}
+      </div>
+    )
+  }
 }
 
 ReactDOM.render(
-  <BlackBorderContainer>
-  <div className='name'>My Name：Lucy</div>
-  <p className='age'>
-    My Age：<span>12</span>
-  </p>
-</BlackBorderContainer>,
+  <Editor>
+</Editor>,
   document.getElementById('root')
 );
 
