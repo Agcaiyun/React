@@ -9,6 +9,15 @@ class Card extends Component {
     return (
       <div>
         {this.props.children}
+        <hr />
+        {this.props.children[0]}
+        <hr />
+        {this.props.children[1]}
+        <hr />
+        {this.props.children[2]}
+        <hr />
+        {this.props.children[3]}
+        <hr />
       </div>
     )
   }
@@ -20,7 +29,7 @@ ReactDOM.render(
       React.js 小书
     </h2>
     <div>
-      开源xxxx
+      开源xxxx <span>dengyixia </span>
     </div>
     订阅：<input />
   </Card>,
