@@ -4,26 +4,26 @@ import './index.css';
 // import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
-class Editor extends Component {
-  constructor() {
-    super()
-    this.state ={
-      content: '<h1> React.js 小书</h1>'
-    }
-  }
-
-  render () {
+class Card extends Component {
+  render() {
     return (
-      <div className='editor-wrapper'>
-        {this.state.content}
+      <div>
+        {this.props.children}
       </div>
     )
   }
 }
 
 ReactDOM.render(
-  <Editor>
-</Editor>,
+  <Card>
+    <h2>
+      React.js 小书
+    </h2>
+    <div>
+      开源xxxx
+    </div>
+    订阅：<input />
+  </Card>,
   document.getElementById('root')
 );
 
