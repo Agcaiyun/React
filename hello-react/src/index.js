@@ -4,35 +4,27 @@ import './index.css';
 // import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
-class Card extends Component {
-  render() {
-    return (
-      <div>
-        {this.props.children}
-        <hr />
-        {this.props.children[0]}
-        <hr />
-        {this.props.children[1]}
-        <hr />
-        {this.props.children[2]}
-        <hr />
-        {this.props.children[3]}
-        <hr />
-      </div>
-    )
-  }
+const getDefaultStyledPost = (defaultStyle) => {
+  return (
+    class Post extends React.Component {
+      render() {
+        const style = { ...defaultStyle, ...this.props.style }
+        return (
+          <p style={style}>Just a test</p>
+        )
+      }
+    }
+
+  )
 }
 
+const A = getDefaultStyledPost({ color: 'red' })
+
 ReactDOM.render(
-  <Card>
-    <h2>
-      React.js 小书
-    </h2>
-    <div>
-      开源xxxx <span>dengyixia </span>
-    </div>
-    订阅：<input />
-  </Card>,
+  <div>
+    < A style={{ color: 'blue', fontSize: '20px' }} />
+    < A style={{ fontSize: '50px' }} />
+  </div>,
   document.getElementById('root')
 );
 
