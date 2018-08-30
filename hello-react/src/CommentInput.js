@@ -14,12 +14,23 @@ class CommentInput extends Component {
         }
     }
 
+    componentWillMount () {
+        this._loadUsername()
+    }
+
     componentDidMount () {
         this.textarea.focus()
     }
 
     _saveUsername (username) {
         localStorage.setItem('username', username)
+    }
+
+    _loadUsername () {
+        const username = localStorage.getItem("username")
+        username ? this.setState ({
+            username
+        }) : null
     }
 
     handleUsernameBlur (event) {
