@@ -1,36 +1,34 @@
 import React, { Component } from 'react';
-import ReactDOM fromc  'react-dom';
+import ReactDOM from  'react-dom';
 import PropTypes from 'prop-types';
 import './index.css';
-// import CommentApp from './CommentApp';
+import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
-class Comment extends Component {
-  static propTypes = {
-    comment: PropTypes.object
-  }
+// class Comment extends Component {
+//   static propTypes = {
+//     comment: PropTypes.object
+//   }
 
-  render() {
-    const { comment } = this.props
+//   render() {
+//     const { comment } = this.props
 
-    return (
-      <div>
-        <span>
-          {comment.username}
-        </span>
-        <p>
-          {comment.content}
-        </p>
-      </div>
-    )
-  }
-}
+//     return (
+//       <div>
+//         <span>
+//           {comment.username}
+//         </span>
+//         <p>
+//           {comment.content}
+//         </p>
+//       </div>
+//     )
+//   }
+// }
 
 
 ReactDOM.render(
-  <div>
-    < Comment />
-  </div>,
+  <CommentApp />,
   document.getElementById('root')
 );
 
