@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
+import store from './store'
 
 export default class TodoList extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            inputValue: 'sss',
-            list: [1, 2, 3, 4]
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         inputValue: '',
+    //         list: []
+    //     }
+    // }
 
     render() {
-        const { inputValue, list } = this.state
+        // const { inputValue, list } = this.state
+        const { inputValue, list } = store
+
 
         return (
             <div>
