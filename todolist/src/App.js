@@ -6,7 +6,7 @@ export default class extends Component {
         this.props = props
 
         this.state = {
-            value: '123'
+            value: '1232222'
         }
     }
 
@@ -15,15 +15,9 @@ export default class extends Component {
 
         return (
             <div>
-                {/* 
-                    <div>
-                        {value}
-                    </div> 
-                */}
-
-                {
-                    React.createElement('div', {}, `${value}`)
-                }
+                <div>
+                    {value}
+                </div>
             </div>
         );
     }
