@@ -4,6 +4,17 @@ const defaultState = {
 }
 
 export default function (state = defaultState, action) {
-    console.log(action)
+    // return action.type === 'change-input-value' ?
+    //     JSON.parse(JSON.stringify(action.value))
+    //     : state
+    if (action.type === 'change-input-value') {
+        let newList = JSON.parse(JSON.stringify(action.value))
+        newList = [...state.list, newList]
+        return {
+            inputValue: action.value,
+            list: newList
+        }
+    }
     return state
+
 }

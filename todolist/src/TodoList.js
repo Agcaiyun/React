@@ -6,7 +6,10 @@ export default class TodoList extends Component {
         super(props)
         this.state = store.getState()
 
-        // this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.changeReactComponent = this.changeReactComponent.bind(this)
+
+        store.subscribe(this.changeReactComponent)
     }
 
     render() {
@@ -17,7 +20,7 @@ export default class TodoList extends Component {
                 <input
                     placeholder='to do'
                     value={inputValue}
-                // onChange={this.handleInputChange}
+                    onChange={this.handleInputChange}
                 />
                 <ul>
                     {
@@ -32,12 +35,23 @@ export default class TodoList extends Component {
         )
     }
 
-    // handleInputChange(e) {
-    //     const action = {
-    //         type: 'change-input-value',
-    //         value: e.target.value
-    //     }
+    handleInputChange(e) {
+        const action = {
+            type: 'change-input-value',
+            value: e.target.value
+        }
 
-    //     store.dispatch(action)
-    // }
+        store.dispatch(action)
+    }
+
+    changeReactComponent() {
+        const { inputValue, list } = store.getState()
+
+        this.setState(() => {
+            return {
+                inputValue,
+                list
+            }
+        })
+    }
 }
