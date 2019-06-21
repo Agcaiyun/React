@@ -8,6 +8,8 @@ export default class TodoList extends Component {
 
         this.handleInputChange = this.handleInputChange.bind(this)
         this.changeReactComponent = this.changeReactComponent.bind(this)
+        this.submit = this.submit.bind(this)
+        this.deleteItem = this.deleteItem.bind(this)
 
         store.subscribe(this.changeReactComponent)
     }
@@ -22,11 +24,22 @@ export default class TodoList extends Component {
                     value={inputValue}
                     onChange={this.handleInputChange}
                 />
+                <button
+                    type='button'
+                    onClick={this.submit}
+                >
+                    {`submit`}
+                </button>
                 <ul>
                     {
-                        list.map((item) => {
+                        list.map((item, index) => {
                             return (
-                                <li>{item}</li>
+                                <li
+                                    key={index}
+                                    onClick={() => this.deleteItem(index)}
+                                >
+                                    {item}
+                                </li>
                             )
                         })
                     }
@@ -39,6 +52,24 @@ export default class TodoList extends Component {
         const action = {
             type: 'change-input-value',
             value: e.target.value
+        }
+
+        store.dispatch(action)
+    }
+
+    submit() {
+        const action = {
+            type: 'submit-input-value',
+            value: store.getState().inputValue
+        }
+
+        store.dispatch(action)
+    }
+
+    deleteItem(index) {
+        const action = {
+            type: 'delete-item',
+            value: index
         }
 
         store.dispatch(action)
