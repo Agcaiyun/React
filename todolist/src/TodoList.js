@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import store from './store'
+import { ChangeInputValue, SubmitInputValue, DeleteItem } from './store/actionTypes'
 
 export default class TodoList extends Component {
     constructor(props) {
@@ -9,7 +10,6 @@ export default class TodoList extends Component {
         this.handleInputChange = this.handleInputChange.bind(this)
         this.changeReactComponent = this.changeReactComponent.bind(this)
         this.submit = this.submit.bind(this)
-        this.deleteItem = this.deleteItem.bind(this)
 
         store.subscribe(this.changeReactComponent)
     }
@@ -50,7 +50,7 @@ export default class TodoList extends Component {
 
     handleInputChange(e) {
         const action = {
-            type: 'change-input-value',
+            type: ChangeInputValue,
             value: e.target.value
         }
 
@@ -59,8 +59,7 @@ export default class TodoList extends Component {
 
     submit() {
         const action = {
-            type: 'submit-input-value',
-            value: store.getState().inputValue
+            type: SubmitInputValue
         }
 
         store.dispatch(action)
@@ -68,7 +67,7 @@ export default class TodoList extends Component {
 
     deleteItem(index) {
         const action = {
-            type: 'delete-item',
+            type: DeleteItem,
             value: index
         }
 
@@ -76,13 +75,8 @@ export default class TodoList extends Component {
     }
 
     changeReactComponent() {
-        const { inputValue, list } = store.getState()
-
         this.setState(() => {
-            return {
-                inputValue,
-                list
-            }
+            return store.getState()
         })
     }
 }
