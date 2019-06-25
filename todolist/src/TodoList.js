@@ -50,6 +50,7 @@ export default class TodoList extends Component {
 
     handleInputChange(e) {
         const action = getInputChangeAction(e.target.value)
+
         store.dispatch(action)
     }
 

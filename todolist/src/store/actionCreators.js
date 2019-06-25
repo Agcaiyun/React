@@ -1,4 +1,4 @@
-import { ChangeInputValue, SubmitInputValue, DeleteItem } from './store/actionTypes'
+import { ChangeInputValue, SubmitInputValue, DeleteItem } from './actionTypes'
 
 export const getInputChangeAction = (input) => {
     return {
