@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import store from './store'
 import { getInputChangeAction, getDeleteItemAction, getSubmitAction } from './store/actionCreators'
+import TodoListUI from './TodoListUI'
 
 export default class TodoList extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ export default class TodoList extends Component {
         this.handleInputChange = this.handleInputChange.bind(this)
         this.changeReactComponent = this.changeReactComponent.bind(this)
         this.submit = this.submit.bind(this)
+        this.deleteItem = this.deleteItem.bind(this)
 
         store.subscribe(this.changeReactComponent)
     }
@@ -18,33 +20,13 @@ export default class TodoList extends Component {
         const { inputValue, list } = this.state
 
         return (
-            <div>
-                <input
-                    placeholder='to do'
-                    value={inputValue}
-                    onChange={this.handleInputChange}
-                />
-                <button
-                    type='button'
-                    onClick={this.submit}
-                >
-                    {`submit`}
-                </button>
-                <ul>
-                    {
-                        list.map((item, index) => {
-                            return (
-                                <li
-                                    key={index}
-                                    onClick={() => this.deleteItem(index)}
-                                >
-                                    {item}
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
+            <TodoListUI
+                list={list}
+                inputValue={inputValue}
+                handleInputChange={this.handleInputChange}
+                submit={this.submit}
+                deleteItem={(index) => this.deleteItem(index)}
+            />
         )
     }
 

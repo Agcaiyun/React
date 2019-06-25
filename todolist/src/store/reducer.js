@@ -1,8 +1,8 @@
 import { ChangeInputValue, SubmitInputValue, DeleteItem } from './actionTypes'
 
 const defaultState = {
-    inputValue: 'inputValue',
-    list: [1, 2, 3, 4, 5, 6, 7]
+    inputValue: 'to do inputValue',
+    list: [1, 2, 3, 4, 5]
 }
 
 export default function (state = defaultState, action) {
