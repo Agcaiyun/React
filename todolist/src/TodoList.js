@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import store from './store'
 import { getInputChangeAction, getDeleteItemAction, getSubmitAction } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
@@ -14,6 +15,12 @@ export default class TodoList extends Component {
         this.deleteItem = this.deleteItem.bind(this)
 
         store.subscribe(this.changeReactComponent)
+    }
+
+    componentWillMount() {
+        axios.get('/list/json').then(() => {
+            console.log('test')
+        })
     }
 
     render() {
