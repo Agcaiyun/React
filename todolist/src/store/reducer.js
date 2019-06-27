@@ -1,8 +1,8 @@
-import { ChangeInputValue, SubmitInputValue, DeleteItem } from './actionTypes'
+import { ChangeInputValue, SubmitInputValue, DeleteItem, InitList } from './actionTypes'
 
 const defaultState = {
-    inputValue: 'to do inputValue',
-    list: [1, 2, 3, 4, 5]
+    inputValue: 'inputValue',
+    list: []
 }
 
 export default function (state = defaultState, action) {
@@ -15,12 +15,16 @@ export default function (state = defaultState, action) {
     }
 
     if (type === SubmitInputValue) {
-        newState.list = [...list, inputValue]
+        newState.list = inputValue ? [...list, inputValue] : [...list]
         newState.inputValue = ''
     }
 
     if (type === DeleteItem) {
         newState.list = list.filter((item, index) => action.value !== index)
+    }
+
+    if (type === InitList) {
+        newState.list = JSON.parse(JSON.stringify(value))
     }
 
     return newState

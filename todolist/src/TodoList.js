@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import store from './store'
-import { getInputChangeAction, getDeleteItemAction, getSubmitAction } from './store/actionCreators'
+import { getInputChangeAction, getDeleteItemAction, getSubmitAction, initListAction } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
 
 export default class TodoList extends Component {
@@ -18,8 +18,11 @@ export default class TodoList extends Component {
     }
 
     componentWillMount() {
-        axios.get('/list/json').then(() => {
-            console.log('test')
+        axios.get('https://www.easy-mock.com/mock/5d145a33673c6f47dd3d622d/example1/example#!method=get').then((res) => {
+            const list = res.data.date
+            store.dispatch(initListAction(list))
+        }, () => {
+            console.log('Error: TodoList ComponentWillMount')
         })
     }
 

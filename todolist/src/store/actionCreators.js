@@ -1,4 +1,4 @@
-import { ChangeInputValue, SubmitInputValue, DeleteItem } from './actionTypes'
+import { ChangeInputValue, SubmitInputValue, DeleteItem, InitList } from './actionTypes'
 
 export const getInputChangeAction = (input) => {
     return {
@@ -17,5 +17,12 @@ export const getDeleteItemAction = (index) => {
 export const getSubmitAction = () => {
     return {
         type: SubmitInputValue
+    }
+}
+
+export const initListAction = (list) => {
+    return {
+        type: InitList,
+        value: list
     }
 }
