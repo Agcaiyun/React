@@ -18,7 +18,7 @@ export default class TodoList extends Component {
     }
 
     componentWillMount() {
-        axios.get('https://www.easy-mock.com/mock/5d145a33673c6f47dd3d622d/example1/example#!method=get').then((res) => {
+        axios.get('https://www.easy-mock.com/mock/5d145a33673c6f47dd3d622d/example1/getlist#!method=get').then((res) => {
             const list = res.data.date
             store.dispatch(initListAction(list))
         }, () => {
