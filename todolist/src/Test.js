@@ -8,16 +8,30 @@ export default class Test extends Component {
         }
     }
 
+
     render() {
         return (
             <Fragment>
-                <a href="#" onClick={(e) => this.handleClick(e)} >Click</a>
+                <Greeting isLoggedIn={false} />
             </Fragment>
         )
     }
+}
 
-    handleClick(e) {
-        e.preventDefault()
-        console.log('click')
+function UserGreeting() {
+    return <h1>Welcome back!</h1>
+}
+
+function GuestGreeting() {
+    return <h1>Please sign up.</h1>
+}
+
+function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn
+
+    if (isLoggedIn) {
+        return <UserGreeting />
     }
+
+    return <GuestGreeting />
 }
