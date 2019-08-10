@@ -1,37 +1,28 @@
 import React, { Component, Fragment } from 'react';
-
-export default class Test extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-    }
+import './test.css'
 
 
-    render() {
-        return (
-            <Fragment>
-                <Greeting isLoggedIn={false} />
-            </Fragment>
-        )
-    }
+function FancyBorder(props) {
+    return (
+      <div className={'FancyBorder FancyBorder-' + props.color}>
+        {props.children}
+      </div>
+    );
+}
+  
+function Test() {
+    return (
+      <FancyBorder color="blue">
+        <h1 className="Dialog-title">
+          Welcome
+        </h1>
+        <p className="Dialog-message">
+          Thank you for visiting our spacecraft!
+        </p>
+      </FancyBorder>
+    );
 }
 
-function UserGreeting() {
-    return <h1>Welcome back!</h1>
-}
+export default Test;
+  
 
-function GuestGreeting() {
-    return <h1>Please sign up.</h1>
-}
-
-function Greeting(props) {
-    const isLoggedIn = props.isLoggedIn
-
-    if (isLoggedIn) {
-        return <UserGreeting />
-    }
-
-    return <GuestGreeting />
-}
