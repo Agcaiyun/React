@@ -3,26 +3,26 @@ import './test.css'
 
 
 function FancyBorder(props) {
-    return (
-      <div className={'FancyBorder FancyBorder-' + props.color}>
-        {props.children}
-      </div>
-    );
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}
+    </div>
+  );
 }
-  
+
 function Test() {
-    return (
-      <FancyBorder color="blue">
-        <h1 className="Dialog-title">
-          Welcome
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        Welcome
         </h1>
-        <p className="Dialog-message">
-          Thank you for visiting our spacecraft!
+      <p className="Dialog-message">
+        Thank you for visiting our spacecraft!
         </p>
-      </FancyBorder>
-    );
+    </FancyBorder>
+  );
 }
 
 export default Test;
-  
+
 
