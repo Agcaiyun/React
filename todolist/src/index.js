@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import MyComponent from './MyComponent'
+import { MyComponent } from './MyComponent'
 
 ReactDOM.render(
     <Fragment>
