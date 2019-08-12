@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import TodoList from './TodoList';
-import Test from './Test'
+import MyComponent from './MyComponent'
 
 ReactDOM.render(
-    <Test />,
+    <Fragment>
+        <MyComponent />
+    </Fragment>,
     document.getElementById('root')
 );
