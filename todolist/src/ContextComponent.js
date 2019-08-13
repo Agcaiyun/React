@@ -1,56 +1,39 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 const ThemeContext = React.createContext('light')
 
 class App extends Component {
     render() {
         return (
-            <Fragment>
-                <ThemeContext.Provider value={'test'}>
-                    < Toolbar />
-                </ThemeContext.Provider>
-            </Fragment >
+            <ThemeContext.Provider value={'ThemeContext Provider'}>
+                < Toolbar />
+            </ThemeContext.Provider>
         )
     }
 }
 
 function Toolbar() {
     return (
-        <Fragment>
-            <ThemedButton />
-        </Fragment>
+        <ThemedButton />
     )
 }
 
 class ThemedButton extends Component {
-    // static contextType = ThemeContext;
 
     render() {
         return (
-            <ThemeContext.Cousumer>
+            <ThemeContext.Consumer>
                 {
                     (value) => (
-                        <Fragment>
-                            <h1>
-                                {value}
-                            </h1>
-                        </Fragment>
+                        <h1>
+                            {value}
+                        </h1>
                     )
                 }
-            </ThemeContext.Cousumer>
+            </ThemeContext.Consumer>
         )
     }
 }
-
-// function Button(props) {
-//     return (
-//         <Fragment>
-//             {
-//                 props.theme
-//             }
-//         </Fragment>
-//     )
-// }
 
 export default App;
 
