@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import ContextComponent from './ContextComponent'
+import App from './ContextComponent'
 
 ReactDOM.render(
     <Fragment>
-        <ContextComponent />
+        <App />
     </Fragment>,
     document.getElementById('root')
 );

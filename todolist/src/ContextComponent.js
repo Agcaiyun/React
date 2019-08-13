@@ -6,9 +6,9 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                {/* <ThemeContext.Provider value={'test'}> */}
-                < Toolbar />
-                {/* </ThemeContext.Provider> */}
+                <ThemeContext.Provider value={'test'}>
+                    < Toolbar />
+                </ThemeContext.Provider>
             </Fragment >
         )
     }
@@ -23,24 +23,34 @@ function Toolbar() {
 }
 
 class ThemedButton extends Component {
-    static contextType = ThemeContext;
+    // static contextType = ThemeContext;
 
     render() {
         return (
-            <Button theme={this.context} />
+            <ThemeContext.Cousumer>
+                {
+                    (value) => (
+                        <Fragment>
+                            <h1>
+                                {value}
+                            </h1>
+                        </Fragment>
+                    )
+                }
+            </ThemeContext.Cousumer>
         )
     }
 }
 
-function Button(props) {
-    return (
-        <Fragment>
-            {
-                props.theme
-            }
-        </Fragment>
-    )
-}
+// function Button(props) {
+//     return (
+//         <Fragment>
+//             {
+//                 props.theme
+//             }
+//         </Fragment>
+//     )
+// }
 
 export default App;
 
