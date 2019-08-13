@@ -6,9 +6,9 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <ThemeContext.Provider value={'test'}>
-                    < Toolbar />
-                </ThemeContext.Provider>
+                {/* <ThemeContext.Provider value={'test'}> */}
+                < Toolbar />
+                {/* </ThemeContext.Provider> */}
             </Fragment >
         )
     }
