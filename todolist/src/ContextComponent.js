@@ -5,7 +5,7 @@ const ThemeContext = React.createContext('light')
 class App extends Component {
     render() {
         return (
-            <ThemeContext.Provider value={'ThemeContext Provider'}>
+            <ThemeContext.Provider value={'ThemeContext Provider Test'}>
                 < Toolbar />
             </ThemeContext.Provider>
         )
@@ -19,18 +19,21 @@ function Toolbar() {
 }
 
 class ThemedButton extends Component {
+    static contextType = ThemeContext
 
     render() {
         return (
-            <ThemeContext.Consumer>
-                {
-                    (value) => (
-                        <h1>
-                            {value}
-                        </h1>
-                    )
-                }
-            </ThemeContext.Consumer>
+            <Button theme={this.context} />
+        )
+    }
+}
+
+class Button extends Component {
+    render() {
+        return (
+            <h1>
+                {this.props.theme}
+            </h1>
         )
     }
 }
