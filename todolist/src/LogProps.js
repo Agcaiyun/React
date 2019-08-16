@@ -30,6 +30,7 @@ class FancyButton extends Component {
         }
 
         this.onClick = this.onClick.bind(this)
+        this.refTest = this.refTest.bind(this)
     }
 
 
@@ -41,9 +42,12 @@ class FancyButton extends Component {
         )
     }
 
+    refTest() {
+        console.log('refTest')
+    }
+
     onClick() {
         console.log('FancyButton div onClick')
-        console.log(`${ref.current}`)
     }
 }
 
