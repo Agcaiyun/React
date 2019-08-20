@@ -1,10 +1,8 @@
 import React, { Fragment, createRef } from 'react';
 import ReactDOM from 'react-dom';
-import FancyButton from './LogProps'
-
-const ref = createRef()
+import Test from './Ref';
 
 ReactDOM.render(
-    <FancyButton ref={ref} />,
+    <Test />,
     document.getElementById('root')
 );
