@@ -25,24 +25,24 @@ export default class Ref extends Component {
         this.onDivClick = this.onDivClick.bind(this)
     }
 
-    ref = createRef()
+    buttonRef = createRef()
 
     componentDidMount() {
-        console.log(this.ref.current)
+        console.log(this.buttonRef.current)
     }
 
     render() {
         return (
             // <Fuck />
             <Fragment>
-                <FancyButton ref={this.ref}>{'Click me!'}</FancyButton>
-                <div onClick={this.onDivClick}> {'div'}</div>
+                <FancyButton ref={this.buttonRef}>{'Click me!'}</FancyButton>
+                <div onClick={this.onDivClick}> {'div1'}</div>
             </Fragment>
         )
     }
 
     onDivClick() {
         console.log('onDivClick')
-        console.log(this.ref.current)
+        console.log(this.buttonRef.current)
     }
 }
