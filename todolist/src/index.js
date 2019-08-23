@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WordAdder from './WordAdder'
+import Ref from './Ref';
 
 ReactDOM.render(
-    <WordAdder />,
+    <Ref />,
     document.getElementById('root')
 );
