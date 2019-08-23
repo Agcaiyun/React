@@ -1,8 +1,8 @@
-import React, { Fragment, createRef } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Test from './Ref';
+import WordAdder from './WordAdder'
 
 ReactDOM.render(
-    <Test />,
+    <WordAdder />,
     document.getElementById('root')
 );
