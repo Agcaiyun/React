@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Ref from './Ref';
+import CustomTextInput from './CustomTextInput';
 
 ReactDOM.render(
-    <Ref />,
+    <CustomTextInput />,
     document.getElementById('root')
 );
