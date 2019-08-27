@@ -1,6 +1,19 @@
 import React, { Component } from 'react'
 
 class MouseTracker extends Component {
+
+
+    render() {
+        return (
+            <div>
+                <h1>{'请在红色框框内移动鼠标~'}</h1>
+                <Mouse />
+            </div>
+        )
+    }
+}
+
+class Mouse extends Component {
     constructor(props) {
         super(props)
 
@@ -21,15 +34,14 @@ class MouseTracker extends Component {
 
     render() {
         const { x, y } = this.state
+
         return (
             <div
                 onMouseMove={this.handleMouseMove}
                 style={{
                     height: '100%',
                     border: '1px solid red'
-                }}
-            >
-                <h1>{'请在红色框框内移动鼠标~'}</h1>
+                }}>
                 <p>{`当前鼠标位置为：${x}, ${y}`}</p>
             </div>
         )
