@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-function Index() {
+function Home() {
 	return (
 		<h2>
 			{
@@ -21,43 +21,66 @@ function About() {
 	)
 }
 
-function Users() {
+function Topic({ match }) {
 	return (
-		<h2>
+		<h3>
 			{
-				'Users3333'
+				`Requested Param: ${match.params.id}`
 			}
-		</h2>
+		</h3>
 	)
 }
 
-function AppRouter() {
+function Topics({ match }) {
 	return (
 		<Fragment>
+			<h2>
+				{
+					'Topics'
+				}
+			</h2>
 
-			<Router>
-				<Fragment>
-					<nav>
-						<ul>
-							<li>
-								<Link to='/'>Home</Link>
-							</li>
-							<li>
-								<Link to='/about/'>About</Link>
-							</li>
-							<li>
-								<Link to='/users/'>Users</Link>
-							</li>
-						</ul>
-					</nav>
-				</Fragment>
+			<ul>
+				<li>
+					<Link to={`${match.url}/components`}>Components</Link>
+				</li>
+				<li>
+					<Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+				</li>
+			</ul>
 
-				<Route path='/' exact component={Index} />
-				<Route path='/about' component={About} />
-				<Route path='/users' component={Users} />
-			</Router>
+
 		</Fragment>
+	)
+}
 
+function Header() {
+	return (
+		<ul>
+			<li>
+				<Link to='/'>Home</Link>
+			</li>
+			<li>
+				<Link to='/about'>About</Link>
+			</li>
+			<li>
+				<Link to='/topics'>Topics</Link>
+			</li>
+		</ul>
+	)
+}
+
+function App() {
+	return (
+		<Router>
+			<Fragment>
+				<Header />
+
+				<Route exact path='/' component={Home} />
+				<Route path='/about' component={About} />
+				<Route path='/topics' component={Topics} />
+			</Fragment>
+		</Router>
 	)
 }
 
