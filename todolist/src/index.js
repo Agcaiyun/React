@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import CustomTextInput from './CustomTextInput';
-// import AutoFocusTextInput from './AutoFocusTextInput';
-import MouseTracker from './MouseTracker'
+import NameForm from './NameForm'
 
 ReactDOM.render(
-    <MouseTracker />,
+    <NameForm />,
     document.getElementById('root')
 );
