@@ -13,7 +13,7 @@ class NameForm extends Component {
     }
 
     handleSubmit(event) {
-        console.log(`A name was submitted: ${this.inputRef.current.value}`)
+        console.log(`A name was submitted: ${this.inputRef.current.files[0].name}`)
         event.preventDefault()
     }
 
@@ -22,7 +22,7 @@ class NameForm extends Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Name:
-                    <input type='type' ref={this.inputRef} />
+                    <input type='file' ref={this.inputRef} />
                 </label>
                 <input type='submit' value='submit' />
             </form>
