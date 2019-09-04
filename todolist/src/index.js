@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NameForm from './NameForm'
+// import NameForm from './NameForm';
+import Counter from './Counter'
 
 ReactDOM.render(
-    <NameForm />,
+    <Counter />,
     document.getElementById('root')
 );
