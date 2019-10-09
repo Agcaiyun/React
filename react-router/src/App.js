@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 export default function App() {
 	return (
 		<Router>
-			<vid>
+			<div>
 				<Navigation />
 
 				<Switch>
@@ -18,7 +18,7 @@ export default function App() {
 						<Home />
 					</Route>
 				</Switch>
-			</vid>
+			</div>
 		</Router>
 	)
 }
