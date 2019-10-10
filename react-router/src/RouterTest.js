@@ -17,15 +17,16 @@ export default function RouterTest() {
             </ul>
 
             <Switch>
+                <Route exact path='/'>
+                    <Home />
+                </Route>
                 <Route path='/first'>
                     <First />
                 </Route>
                 <Route path='/second'>
                     <Second />
                 </Route>
-                <Route path='/'>
-                    <Home />
-                </Route>
+
             </Switch>
         </Router>
     )
