@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch, Route, NavLink } from 'react-router-dom';
 
 export default function RouterTest() {
     return (
@@ -10,6 +10,9 @@ export default function RouterTest() {
                 </li>
                 <li>
                     <Link to='/second'>Second</Link>
+                </li>
+                <li>
+                    <NavLink to='/third' activeStyle={{ fontWeigth: 'bold', color: 'green', fontSize: '30px' }}>Third</NavLink>
                 </li>
                 <li>
                     <Link to='/'>Home</Link>
@@ -25,6 +28,9 @@ export default function RouterTest() {
                 </Route>
                 <Route path='/second'>
                     <Second />
+                </Route>
+                <Route path='/third'>
+                    <Third />
                 </Route>
 
             </Switch>
@@ -44,6 +50,14 @@ function Second() {
     return (
         <h2>
             Second
+        </h2>
+    )
+}
+
+function Third() {
+    return (
+        <h2>
+            Third
         </h2>
     )
 }
