@@ -1,17 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RouterTest from './RouterTest';
-import BrowserRouterComponent from './BrowserRouter';
-import { Route } from 'react-router-dom';
-import Router from './Router'
+// import ScrollToTop from './ScrollToTop'
+import App from './App'
 
 ReactDOM.render(
-    <RouterTest />,
-    // <BrowserRouterComponent />,
-
-
-    // <Route >
-    //     <Router />
-    // </Route>,
+    <App />,
     document.getElementById('root')
 );
