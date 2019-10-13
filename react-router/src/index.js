@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import ScrollToTop from './ScrollToTop'
-import App from './App'
+import Tacos from './Tacos'
 
 ReactDOM.render(
-    <App />,
+    <Tacos />,
     document.getElementById('root')
 );
