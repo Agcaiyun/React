@@ -1,11 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { Prompt } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import HomeButton from './HomeButton'
+import HomeButton from './HomeButton';
+import GetUserConfirmation from './GetUserConfirmation'
 
 ReactDOM.render(
-    <Router>
-        <HomeButton />
+    <Router getUserConfirmation={(message, callback) => {
+
+        alert(message)
+        callback(true)
+    }}>
+        <GetUserConfirmation />
     </Router>,
     document.getElementById('root')
 );

@@ -1,25 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Prompt } from 'react-router'
 import { BrowserRouter, Link } from 'react-router-dom';
 
-export default function GetUserConfirmation() {
-    return (
-        <BrowserRouter
-        // basename={'/home'}
-        // getUserConfirmation={() => { console.log('getUserConfirrmation') }}
-        >
-            <div>
-                <form>
+export default class GetUserConfirmation extends Component {
+    constructor(props) {
+        super(props)
+    }
 
-                    <Prompt
-                        when={true}
-                        message={'Are you sure to leave'}
-                    />
-                    {/* <Link to={'/test'}>ceshi</Link>
-                <Route path={'/test'} component={Test} /> */}
-                </form>
-            </div>
-        </BrowserRouter>
-    )
+    state = {
+        isWhen: false
+    }
+
+    render() {
+        return <Prompt
+            when={true}
+            message="Are you sure you want to leave?"
+        />
+    }
+
+    onChangeWhenState() {
+        this.setState({
+            isWhen: true
+        })
+    }
 }
-

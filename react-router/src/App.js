@@ -5,9 +5,10 @@ import Tacos from './Tacos';
 export default function App() {
 	return (
 		<Router>
-			<div>
+			{/* <div>
 				<Route path='/tacos' component={Tacos} />
-			</div>
+			</div> */}
+			<Prompt when={true} message="Are you sure?" />
 		</Router>
 	);
 }
