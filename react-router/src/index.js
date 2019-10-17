@@ -2,15 +2,9 @@ import React from 'react';
 import ReactDOM, { Prompt } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import HomeButton from './HomeButton';
-import GetUserConfirmation from './GetUserConfirmation'
+import ForceRefresh from './ForceRefresh'
 
 ReactDOM.render(
-    <Router getUserConfirmation={(message, callback) => {
-
-        alert(message)
-        callback(true)
-    }}>
-        <GetUserConfirmation />
-    </Router>,
+    <ForceRefresh />,
     document.getElementById('root')
 );
