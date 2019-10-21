@@ -11,6 +11,11 @@ export default function NavLinkView() {
                         activeStyle={{
                             color: 'green'
                         }}
+                        isActive={(match, location) => {
+                            console.log(match)
+                            console.log(location)
+                            return true
+                        }}
                     >
                         Hello
                     </NavLink>
