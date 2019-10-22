@@ -4,8 +4,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import HomeButton from './HomeButton';
 import ForceRefresh from './ForceRefresh';
 import NavLinkView from './NavLink';
+import RouteView from './RouteView';
 
 ReactDOM.render(
-    <NavLinkView />,
+    <RouteView />,
     document.getElementById('root')
 );
