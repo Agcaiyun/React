@@ -4,36 +4,39 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 export default function RouteView() {
     return (
         <Router>
-            <Switch
-                location={{
-                    pathname: '/document'
-                }}
-            >
+            {/* <Switch
+            // location={{
+            //     pathname: '/document'
+            // }}
+            > */}
 
-                <Route
-                    path={["/home/user", "/home/blog", "/home/about"]}
-                    render={() => <div>Home/user  or Home/blog  or  Home/about</div>}
-                />
-                {/* location.pathname = ‘/document/all’ 时，界面将展示 path='/document' path='/document/all' 两个路径 */}
-                <Route
-                    path={'/document'}
-                    render={() => <h2>Document</h2>}
-                />
-                <Route
-                    path={'/document/all'}
-                    render={() => <h2>Document All</h2>}
-                />
-                {/* path={'/:user'} 为动态路由，location.pathname = ‘/about’ 时，About User NoMatch 都将显示 */}
-                <Route path={'/about'}>
-                    <h2>About</h2>
-                </Route>
-                {/* <Route path={'/:user'}>
-                    <h2>User</h2>
-                </Route> */}
-                <Route>
-                    <h2>NoMatch</h2>
-                </Route>
-            </Switch>
+            <Route
+                location={{
+                    pathname: '/about'
+                }}
+                // path={["/home/user", "/home/blog", "/home/about"]}
+                render={() => <div>Home/user  or Home/blog  or  Home/about</div>}
+            />
+            {/* location.pathname = ‘/document/all’ 时，界面将展示 path='/document' path='/document/all' 两个路径 */}
+            <Route
+                path={'/document'}
+                render={() => <h2>Document</h2>}
+            />
+            <Route
+                path={'/document/all'}
+                render={() => <h2>Document All</h2>}
+            />
+            {/* path={'/:user'} 为动态路由，location.pathname = ‘/about’ 时，About User NoMatch 都将显示 */}
+            <Route path={'/about'}>
+                <h2>About</h2>
+            </Route>
+            <Route path={'/:user'}>
+                <h2>User</h2>
+            </Route>
+            <Route>
+                <h2>NoMatch</h2>
+            </Route>
+            {/* </Switch> */}
         </Router>
     )
 }
