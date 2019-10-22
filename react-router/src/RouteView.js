@@ -12,9 +12,9 @@ export default function RouteView() {
 
             <Route
                 location={{
-                    pathname: '/about'
+                    pathname: '/home/user'
                 }}
-                // path={["/home/user", "/home/blog", "/home/about"]}
+                path={["/home/user", "/home/blog", "/home/about"]}
                 render={() => <div>Home/user  or Home/blog  or  Home/about</div>}
             />
             {/* location.pathname = ‘/document/all’ 时，界面将展示 path='/document' path='/document/all' 两个路径 */}
