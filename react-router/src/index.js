@@ -5,8 +5,9 @@ import HomeButton from './HomeButton';
 import ForceRefresh from './ForceRefresh';
 import NavLinkView from './NavLink';
 import RouteView from './RouteView';
+import CookieFun from './Cookie';
 
 ReactDOM.render(
-    <RouteView />,
+    <CookieFun />,
     document.getElementById('root')
 );
